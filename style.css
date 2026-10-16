@@ -1,0 +1,418 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #080516;
+    color: #f5eaff;
+    font-family: 'Cormorant Garamond', serif;
+    position: relative;
+    isolation: isolate;
+}
+
+
+
+.galaxia {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 25%,
+            rgba(137, 55, 210, 0.35),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 80% 75%,
+            rgba(65, 45, 180, 0.3),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at center,
+            #19102f,
+            #080516 80%
+        );
+}
+
+
+
+.nebulosa {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: -2;
+
+    animation: nebulosaFlutua 12s ease-in-out infinite alternate;
+}
+
+.nebulosa-1 {
+    background: #963be8;
+    top: -100px;
+    left: -100px;
+}
+
+.nebulosa-2 {
+    background: #4834c7;
+    right: -100px;
+    bottom: -100px;
+    animation-delay: -6s;
+}
+
+@keyframes nebulosaFlutua {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(45px, 35px) scale(1.2);
+    }
+}
+
+
+
+#particulas {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+
+
+.particula {
+    position: absolute;
+    top: -50px;
+    left: 0;
+
+    display: block;
+    user-select: none;
+    white-space: nowrap;
+
+    opacity: 0;
+    will-change: transform, opacity;
+
+    animation: flutuar var(--duracao) linear forwards;
+}
+
+.estrela {
+    color: #e4c8ff;
+
+    text-shadow:
+        0 0 5px #d8b4fe,
+        0 0 12px #a855f7,
+        0 0 24px #9333ea;
+}
+
+.coracao {
+    color: #d8a5ff;
+
+    text-shadow:
+        0 0 5px #e9d5ff,
+        0 0 12px #c084fc,
+        0 0 24px #9333ea;
+}
+
+
+
+@keyframes flutuar {
+    0% {
+        transform: translate3d(0, 0, 0)
+                   rotate(0deg) scale(0.5);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translate3d(var(--desvio), 50vh, 0)
+                   rotate(180deg) scale(1);
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate3d(
+            calc(var(--desvio) * -0.5),
+            110vh,
+            0
+        ) rotate(360deg) scale(0.7);
+
+        opacity: 0;
+    }
+}
+
+
+
+.universo {
+    position: relative;
+    z-index: 2;
+
+    width: min(90%, 700px);
+    margin: 0 auto;
+    padding: 45px 0;
+
+    text-align: center;
+}
+
+.cabecalho {
+    margin-bottom: 30px;
+    color: #c8a3ff;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+
+.estrela-decorativa {
+    display: inline-block;
+    margin: 12px;
+    font-size: 20px;
+
+    animation: brilho 2s ease-in-out infinite alternate;
+}
+
+
+
+.poema {
+    padding: 35px 25px;
+    border: 1px solid rgba(202, 157, 255, 0.35);
+    border-radius: 22px;
+
+    background: rgba(22, 12, 48, 0.72);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 30px rgba(140, 66, 230, 0.15),
+        inset 0 0 25px rgba(174, 115, 255, 0.05);
+}
+
+.subtitulo {
+    margin-bottom: 18px;
+    color: #c7a3ff;
+    font-size: 15px;
+    letter-spacing: 3px;
+}
+
+.poema h1 {
+    color: #f4e8ff;
+    font-size: clamp(38px, 8vw, 62px);
+    line-height: 1.05;
+    font-weight: 500;
+
+    text-shadow:
+        0 0 15px rgba(191, 132, 255, 0.5),
+        0 0 35px rgba(140, 70, 220, 0.2);
+}
+
+.divisor {
+    margin: 25px 0;
+    color: #cba5ff;
+    font-size: 25px;
+}
+
+
+.versos {
+    color: #e5d8f6;
+    font-size: 21px;
+    line-height: 1.8;
+}
+
+.versos p {
+    margin-bottom: 25px;
+    animation: aparecer 1.5s ease both;
+}
+
+.versos p:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.versos p:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.versos p:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+
+
+
+.final-poema {
+    margin-top: 35px;
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(202, 157, 255, 0.2);
+
+    color: #d7b9ff;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.final-poema span {
+    display: block;
+    margin: 10px;
+}
+
+
+
+.rodape {
+    padding: 25px 0;
+    color: #a993c9;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.rodape span {
+    display: block;
+    margin-top: 12px;
+    color: #cba5ff;
+}
+
+
+
+@keyframes brilho {
+    from {
+        opacity: 0.5;
+        text-shadow: 0 0 5px #b56aff;
+    }
+
+    to {
+        opacity: 1;
+        text-shadow: 0 0 18px #d7aaff;
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .universo {
+        width: 92%;
+        padding: 25px 0;
+    }
+
+    .poema {
+        padding: 28px 18px;
+    }
+
+    .versos {
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .cabecalho {
+        letter-spacing: 3px;
+    }
+
+    .nebulosa {
+        width: 240px;
+        height: 240px;
+        filter: blur(70px);
+    }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .nebulosa,
+    .estrela-decorativa,
+    .versos p {
+        animation: none;
+    }
+}
+.convite {
+  display: none;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  text-align: center;
+  border-radius: 18px;
+  background: #fff5f5;
+  color: #49343b;
+  font-family: Georgia, serif;
+  animation: aparecer 1.2s ease;
+}
+
+.convite h2 {
+  color: #a33d55;
+}
+
+.convite h3 {
+  margin-top: 25px;
+  color: #8e3049;
+}
+
+.convite p {
+  line-height: 1.8;
+}
+
+.botoes-convite {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.botoes-convite button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 25px;
+  background: #a33d55;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.botoes-convite button:hover {
+  background: #79283d;
+  transform: scale(1.05);
+}
+
+#respostaConvite {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
