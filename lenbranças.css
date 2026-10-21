@@ -1,0 +1,839 @@
+/* ==========================================
+   GALÁXIA VERDE — ÁLBUM DE LEMBRANÇAS
+   Arquivo exclusivo: lembrancas.css
+========================================== */
+
+:root {
+    --fundo: #061a12;
+    --verde-profundo: #09291c;
+    --verde: #42db91;
+    --verde-claro: #b6ffd2;
+    --verde-suave: #8dbba0;
+    --texto: #effff4;
+    --texto-suave: #bed5c5;
+    --linha: #74dca54a;
+}
+
+/* Configuração geral */
+
+.pagina-lembrancas {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--texto);
+    background: var(--fundo);
+    font-family: "DM Sans", sans-serif;
+}
+
+.pagina-lembrancas *,
+.pagina-lembrancas *::before,
+.pagina-lembrancas *::after {
+    box-sizing: border-box;
+}
+
+.pagina-lembrancas a {
+    color: inherit;
+}
+
+.pagina-lembrancas img {
+    max-width: 100%;
+}
+
+/* ==========================================
+   FUNDO CÓSMICO
+========================================== */
+
+.ceu-verde {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse at 15% 25%,
+            #145a3745 0%,
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 85% 70%,
+            #08784a30 0%,
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 50% 100%,
+            #103e2a60 0%,
+            transparent 50%
+        ),
+        #061a12;
+}
+
+/* Nebulosas */
+
+.nebulosa-verde {
+    position: absolute;
+    width: 65vw;
+    height: 65vw;
+    max-width: 850px;
+    max-height: 850px;
+    border-radius: 50%;
+    filter: blur(85px);
+    opacity: 0.16;
+    animation: nebulosa-flutua 20s ease-in-out infinite alternate;
+}
+
+.nebulosa-a {
+    top: -25%;
+    left: -20%;
+    background: #20c875;
+}
+
+.nebulosa-b {
+    top: 30%;
+    right: -35%;
+    background: #00a76a;
+    animation-delay: -7s;
+}
+
+.nebulosa-c {
+    bottom: -35%;
+    left: 15%;
+    background: #7bdb78;
+    animation-delay: -12s;
+}
+
+/* Estrelas criadas com CSS */
+
+.estrelas {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 8% 17%, #caffdc 99%, transparent),
+        radial-gradient(2px 2px at 18% 67%, #80ffb2 99%, transparent),
+        radial-gradient(1px 1px at 29% 32%, #ffffff 99%, transparent),
+        radial-gradient(2px 2px at 41% 84%, #8dffc1 99%, transparent),
+        radial-gradient(1px 1px at 53% 12%, #ffffff 99%, transparent),
+        radial-gradient(2px 2px at 63% 47%, #b0ffd0 99%, transparent),
+        radial-gradient(1px 1px at 74% 24%, #ffffff 99%, transparent),
+        radial-gradient(2px 2px at 87% 78%, #8bffb7 99%, transparent),
+        radial-gradient(1px 1px at 95% 39%, #ffffff 99%, transparent);
+    background-size: 350px 350px;
+    opacity: 0.55;
+    animation: estrelas-pulso 5s ease-in-out infinite alternate;
+}
+
+/* ==========================================
+   FOLHAS DAS QUATRO ESTAÇÕES
+========================================== */
+
+.chuva-folhas {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.folha {
+    position: absolute;
+    top: -12vh;
+    left: var(--posicao, 50%);
+    display: block;
+    font-size: var(--tamanho, 22px);
+    opacity: 0;
+    filter: drop-shadow(0 0 7px #59ff9b35);
+    animation:
+        queda-folha var(--duracao, 16s) linear var(--atraso, 0s) infinite;
+    will-change: transform;
+}
+
+.folha-1 {
+    --posicao: 4%;
+    --tamanho: 24px;
+    --duracao: 17s;
+    --atraso: -8s;
+}
+
+.folha-2 {
+    --posicao: 12%;
+    --tamanho: 21px;
+    --duracao: 21s;
+    --atraso: -14s;
+}
+
+.folha-3 {
+    --posicao: 19%;
+    --tamanho: 27px;
+    --duracao: 19s;
+    --atraso: -4s;
+}
+
+.folha-4 {
+    --posicao: 27%;
+    --tamanho: 25px;
+    --duracao: 23s;
+    --atraso: -18s;
+}
+
+.folha-5 {
+    --posicao: 35%;
+    --tamanho: 18px;
+    --duracao: 16s;
+    --atraso: -11s;
+}
+
+.folha-6 {
+    --posicao: 43%;
+    --tamanho: 25px;
+    --duracao: 20s;
+    --atraso: -6s;
+}
+
+.folha-7 {
+    --posicao: 51%;
+    --tamanho: 22px;
+    --duracao: 24s;
+    --atraso: -16s;
+}
+
+.folha-8 {
+    --posicao: 59%;
+    --tamanho: 28px;
+    --duracao: 18s;
+    --atraso: -2s;
+}
+
+.folha-9 {
+    --posicao: 67%;
+    --tamanho: 21px;
+    --duracao: 22s;
+    --atraso: -12s;
+}
+
+.folha-10 {
+    --posicao: 74%;
+    --tamanho: 16px;
+    --duracao: 19s;
+    --atraso: -9s;
+    color: #eafff0;
+}
+
+.folha-11 {
+    --posicao: 81%;
+    --tamanho: 26px;
+    --duracao: 25s;
+    --atraso: -20s;
+}
+
+.folha-12 {
+    --posicao: 88%;
+    --tamanho: 23px;
+    --duracao: 17s;
+    --atraso: -5s;
+}
+
+.folha-13 {
+    --posicao: 96%;
+    --tamanho: 27px;
+    --duracao: 22s;
+    --atraso: -15s;
+}
+
+.folha-14 {
+    --posicao: 23%;
+    --tamanho: 19px;
+    --duracao: 26s;
+    --atraso: -22s;
+}
+
+.folha-15 {
+    --posicao: 71%;
+    --tamanho: 24px;
+    --duracao: 21s;
+    --atraso: -17s;
+}
+
+.folha-16 {
+    --posicao: 47%;
+    --tamanho: 15px;
+    --duracao: 24s;
+    --atraso: -13s;
+    color: #eafff0;
+}
+
+@keyframes queda-folha {
+    0% {
+        transform: translate3d(0, -5vh, 0) rotate(0deg);
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 0.85;
+    }
+
+    25% {
+        transform: translate3d(45px, 28vh, 0) rotate(100deg);
+    }
+
+    50% {
+        transform: translate3d(-35px, 55vh, 0) rotate(220deg);
+        opacity: 0.75;
+    }
+
+    75% {
+        transform: translate3d(55px, 83vh, 0) rotate(320deg);
+        opacity: 0.7;
+    }
+
+    94% {
+        opacity: 0.45;
+    }
+
+    100% {
+        transform: translate3d(-20px, 115vh, 0) rotate(460deg);
+        opacity: 0;
+    }
+}
+
+/* ==========================================
+   CONTEÚDO
+========================================== */
+
+.universo-verde {
+    position: relative;
+    z-index: 2;
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 30px 0 70px;
+}
+
+/* Navegação */
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.link-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border: 1px solid var(--linha);
+    border-radius: 30px;
+    color: var(--verde-claro) !important;
+    background: #0a281b9c;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.link-voltar:hover {
+    background: #1a5638;
+    border-color: var(--verde);
+}
+
+.selo-universo {
+    color: var(--verde-suave);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+}
+
+/* ==========================================
+   ABERTURA
+========================================== */
+
+.abertura {
+    max-width: 760px;
+    margin: 100px auto 85px;
+    text-align: center;
+}
+
+.sobretitulo {
+    margin-bottom: 24px;
+    color: var(--verde);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+.abertura h1 {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(3rem, 8vw, 6.3rem);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    text-shadow: 0 0 45px #48e88c20;
+}
+
+.abertura h1 span {
+    display: block;
+    margin-top: 12px;
+    color: var(--verde);
+    font-style: italic;
+    text-shadow: 0 0 30px #3cf08a25;
+}
+
+.texto-abertura {
+    margin: 32px auto 0;
+    color: var(--texto-suave);
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+    line-height: 1.8;
+}
+
+.ornamento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 17px;
+    margin: 30px 0;
+    color: var(--verde);
+    font-size: 1.4rem;
+}
+
+.ornamento span:nth-child(2) {
+    font-size: 2rem;
+}
+
+.indicacao {
+    color: #83ac91;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+/* ==========================================
+   GALERIA DE MEMÓRIAS
+========================================== */
+
+.galeria-memorias {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: start;
+    gap: 55px 30px;
+    padding: 15px 5px 65px;
+}
+
+.foto-card {
+    grid-column: span 2;
+    min-width: 0;
+    margin: 0;
+    padding: 12px 12px 22px;
+    border: 1px solid #d6f7df30;
+    border-radius: 4px;
+    background: linear-gradient(145deg, #f7fff7, #e2f0e5);
+    color: #183b27;
+    box-shadow:
+        0 18px 45px #00000035,
+        0 0 20px #3de9870a;
+    transition:
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+    animation: foto-aparece 0.9s ease both;
+}
+
+.foto-1 {
+    transform: rotate(-4deg) translateY(12px);
+}
+
+.foto-2 {
+    transform: rotate(3deg) translateY(-8px);
+    animation-delay: 0.12s;
+}
+
+.foto-3 {
+    transform: rotate(-2deg) translateY(20px);
+    animation-delay: 0.24s;
+}
+
+.foto-4 {
+    transform: rotate(3deg) translateY(-7px);
+    animation-delay: 0.36s;
+}
+
+.foto-5 {
+    transform: rotate(-3deg) translateY(14px);
+    animation-delay: 0.48s;
+}
+
+.foto-6 {
+    transform: rotate(4deg) translateY(-10px);
+    animation-delay: 0.6s;
+}
+
+/* Moldura e imagem */
+
+.moldura-foto {
+    position: relative;
+    overflow: hidden;
+    background: #173525;
+}
+
+.moldura-foto img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.marcador-foto {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    display: grid;
+    width: 31px;
+    height: 31px;
+    place-items: center;
+    border: 1px solid #ffffff70;
+    border-radius: 50%;
+    color: white;
+    background: #09291cb8;
+    font-size: 0.7rem;
+    backdrop-filter: blur(5px);
+}
+
+/* Textos das fotografias */
+
+.foto-card figcaption {
+    padding: 18px 4px 0;
+    text-align: center;
+}
+
+.categoria {
+    display: block;
+    margin-bottom: 9px;
+    color: #3d7852;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.foto-card h2 {
+    margin: 0 0 8px;
+    color: #153b26;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+    font-weight: 600;
+    line-height: 1.05;
+}
+
+.foto-card figcaption p {
+    margin: 0;
+    color: #4b6954;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+/* Efeito ao passar o mouse */
+
+@media (hover: hover) {
+    .foto-card:hover {
+        z-index: 3;
+        border-color: #74dca5a0;
+        box-shadow:
+            0 25px 55px #00000050,
+            0 0 30px #42db9120;
+    }
+
+    .foto-1:hover {
+        transform: rotate(0) translateY(-7px) scale(1.035);
+    }
+
+    .foto-2:hover {
+        transform: rotate(0) translateY(-7px) scale(1.035);
+    }
+
+    .foto-3:hover {
+        transform: rotate(0) translateY(-7px) scale(1.035);
+    }
+
+    .foto-4:hover {
+        transform: rotate(0) translateY(-7px) scale(1.035);
+    }
+
+    .foto-5:hover {
+        transform: rotate(0) translateY(-7px) scale(1.035);
+    }
+
+    .foto-6:hover {
+        transform: rotate(0) translateY(-7px) scale(1.035);
+    }
+
+    .foto-card:hover img {
+        transform: scale(1.04);
+        filter: saturate(1.08);
+    }
+}
+
+@keyframes foto-aparece {
+    from {
+        opacity: 0;
+        translate: 0 22px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* ==========================================
+   ENCERRAMENTO
+========================================== */
+
+.encerramento {
+    max-width: 720px;
+    margin: 35px auto 0;
+    text-align: center;
+}
+
+.linha-decorativa {
+    margin-bottom: 30px;
+    color: var(--verde);
+    font-size: 1rem;
+    letter-spacing: 5px;
+}
+
+.frase-final {
+    margin: 0;
+    color: #d9f0df;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    line-height: 1.8;
+}
+
+.assinatura {
+    margin: 26px 0;
+    color: var(--verde);
+    font-size: 0.85rem;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+.simbolo-final {
+    margin: 25px 0;
+    color: var(--verde-claro);
+    font-size: 1.2rem;
+}
+
+.botao-retorno {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+    padding: 14px 23px;
+    border: 1px solid #42db9160;
+    border-radius: 40px;
+    color: var(--verde-claro) !important;
+    background: #0c3020c9;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.botao-retorno:hover {
+    transform: translateY(-3px);
+    border-color: var(--verde);
+    background: #16462d;
+    box-shadow: 0 0 25px #42db9120;
+}
+
+/* ==========================================
+   ANIMAÇÕES DO UNIVERSO
+========================================== */
+
+@keyframes nebulosa-flutua {
+    from {
+        transform: translate3d(-2%, -1%, 0) scale(0.95);
+    }
+
+    to {
+        transform: translate3d(4%, 3%, 0) scale(1.08);
+    }
+}
+
+@keyframes estrelas-pulso {
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 0.75;
+    }
+}
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media (max-width: 800px) {
+    .universo-verde {
+        width: calc(100% - 32px);
+    }
+
+    .abertura {
+        margin-top: 80px;
+    }
+
+    .galeria-memorias {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px 22px;
+        padding-inline: 5px;
+    }
+
+    .foto-card {
+        grid-column: span 1;
+        padding: 9px 9px 17px;
+    }
+
+    .foto-1 {
+        transform: rotate(-3deg) translateY(8px);
+    }
+
+    .foto-2 {
+        transform: rotate(3deg) translateY(-5px);
+    }
+
+    .foto-3 {
+        transform: rotate(2deg) translateY(8px);
+    }
+
+    .foto-4 {
+        transform: rotate(-3deg) translateY(-4px);
+    }
+
+    .foto-5 {
+        transform: rotate(-3deg) translateY(8px);
+    }
+
+    .foto-6 {
+        transform: rotate(3deg) translateY(-4px);
+    }
+}
+
+/* ==========================================
+   CELULARES
+========================================== */
+
+@media (max-width: 480px) {
+    .universo-verde {
+        width: calc(100% - 24px);
+        padding-top: 20px;
+    }
+
+    .selo-universo {
+        font-size: 0.57rem;
+        letter-spacing: 1px;
+    }
+
+    .link-voltar {
+        gap: 7px;
+        padding: 9px 11px;
+        font-size: 0.75rem;
+    }
+
+    .abertura {
+        margin: 75px auto 55px;
+    }
+
+    .sobretitulo {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+    }
+
+    .abertura h1 {
+        letter-spacing: -1px;
+    }
+
+    .texto-abertura {
+        font-size: 1.15rem;
+    }
+
+    .indicacao {
+        font-size: 0.58rem;
+        letter-spacing: 1px;
+    }
+
+    .galeria-memorias {
+        gap: 28px 14px;
+        padding: 10px 3px 45px;
+    }
+
+    .foto-card {
+        padding: 7px 7px 13px;
+    }
+
+    .foto-card figcaption {
+        padding-top: 12px;
+    }
+
+    .categoria {
+        font-size: 0.48rem;
+        letter-spacing: 1px;
+    }
+
+    .foto-card h2 {
+        font-size: 1.35rem;
+    }
+
+    .foto-card figcaption p {
+        font-size: 1rem;
+    }
+
+    .marcador-foto {
+        width: 25px;
+        height: 25px;
+        font-size: 0.6rem;
+    }
+
+    .encerramento {
+        padding: 0 5px;
+    }
+
+    .frase-final {
+        font-size: 1.35rem;
+    }
+
+    .assinatura {
+        font-size: 0.78rem;
+        line-height: 1.6;
+    }
+
+    .botao-retorno {
+        padding: 12px 17px;
+        font-size: 0.76rem;
+    }
+
+    .folha {
+        filter: none;
+    }
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+========================================== */
+
+.pagina-lembrancas a:focus-visible {
+    outline: 2px solid var(--verde-claro);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pagina-lembrancas *,
+    .pagina-lembrancas *::before,
+    .pagina-lembrancas *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .folha {
+        display: none;
+    }
+}

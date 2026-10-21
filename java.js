@@ -88,3 +88,92 @@ function responderConvite(resposta) {
       "Tudo bem! 😊 Sem pressa. Obrigado por considerar o convite.";
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const chuva = document.querySelector(".chuva-folhas");
+
+    // Se o elemento não existir, não executa.
+    if (!chuva) return;
+
+    // Respeita a preferência de reduzir animações.
+    const movimentoReduzido = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    );
+
+    if (movimentoReduzido.matches) return;
+
+    // Folhas representando as quatro estações.
+    const folhas = [
+        { simbolo: "🍃", estacao: "primavera" },
+        { simbolo: "🌿", estacao: "verao" },
+        { simbolo: "🍂", estacao: "outono" },
+        { simbolo: "🍁", estacao: "outono" },
+        { simbolo: "❄", estacao: "inverno" }
+    ];
+
+    // Quantidade máxima de folhas na tela.
+    const quantidadeFolhas = window.innerWidth < 600 ? 16 : 28;
+
+    function criarFolha() {
+        const folha = document.createElement("span");
+
+        const modelo = folhas[
+            Math.floor(Math.random() * folhas.length)
+        ];
+
+        folha.classList.add("folha", `folha-${modelo.estacao}`);
+        folha.textContent = modelo.simbolo;
+
+        // Posição horizontal aleatória.
+        folha.style.left = `${Math.random() * 100}%`;
+
+        // Tamanhos variados.
+        folha.style.fontSize =
+            `${14 + Math.random() * 18}px`;
+
+        // Velocidade diferente para cada folha.
+        const duracao = 10 + Math.random() * 16;
+        folha.style.animationDuration = `${duracao}s`;
+
+        // Distribui as folhas pelo céu desde o início.
+        folha.style.animationDelay =
+            `${-Math.random() * duracao}s`;
+
+        // Movimento lateral personalizado.
+        const deslocamento = -100 + Math.random() * 200;
+
+        folha.style.setProperty(
+            "--deslocamento",
+            `${deslocamento}px`
+        );
+
+        // Pequena variação de transparência.
+        folha.style.opacity = `${0.45 + Math.random() * 0.5}`;
+
+        // Evita que leitores de tela anunciem cada folha.
+        folha.setAttribute("aria-hidden", "true");
+
+        chuva.appendChild(folha);
+    }
+
+    // Cria todas as folhas iniciais.
+    for (let i = 0; i < quantidadeFolhas; i++) {
+        criarFolha();
+    }
+
+    // Cria uma folha nova periodicamente.
+    const intervalo = window.setInterval(() => {
+        if (document.hidden) return;
+
+        // Evita crescimento infinito de elementos.
+        if (chuva.childElementCount >= quantidadeFolhas + 8) {
+            return;
+        }
+
+        criarFolha();
+    }, 900);
+
+    // Pausa a criação quando a página é encerrada.
+    window.addEventListener("pagehide", () => {
+        window.clearInterval(intervalo);
+    }, { once: true });
+});
